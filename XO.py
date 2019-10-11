@@ -7,15 +7,15 @@ pathO = 'images\mouseO.png'
 player1 = 0
 player2 = 0
 
-l1 = []
-l2 = []
-l3 = []
-l4 = []
-l5 = []
-l6 = []
-l7 = []
-l8 = []
-l9 = []
+l1 = ''
+l2 = ''
+l3 = ''
+l4 = ''
+l5 = ''
+l6 = ''
+l7 = ''
+l8 = ''
+l9 = ''
 
 
 class Click():
@@ -27,7 +27,7 @@ class Click():
 
     def start_game(event):
         global l1, l2, l3, l4, l5, l6, l7, l8, l9
-        l1 = l2 = l3 = l4 = l5 = l6 = l7 = l8 = l9 = []
+        l1 = l2 = l3 = l4 = l5 = l6 = l7 = l8 = l9 = ''
 
         lbl_txt.configure(text=' ')
 
@@ -121,6 +121,7 @@ class Click():
 
     def test(self):
         global player1, player2, l1, l2, l3, l4, l5, l6, l7, l8, l9
+
 
         if l1 == l2 == l3 == 'X' or l1 == l2 == l3 == 'O':
             lebel1.configure(bg='green', fg='black')
@@ -330,6 +331,18 @@ class Click():
                 lebel9.grid_remove()
                 lebel8.grid_remove()
 
+        elif len(l1 + l2 + l3 + l4 + l5 + l6 + l7 + l8 + l9) == 9:
+            lbl_txt.configure(text='Ничья!', fg='white')
+            lebel1.grid_remove()
+            lebel2.grid_remove()
+            lebel3.grid_remove()
+            lebel4.grid_remove()
+            lebel5.grid_remove()
+            lebel6.grid_remove()
+            lebel7.grid_remove()
+            lebel8.grid_remove()
+            lebel9.grid_remove()
+
 
 root = Tk()
 root.resizable(width=False, height=False)
@@ -366,4 +379,3 @@ lebel8 = Label(root, font=('Ubuntu', 20), width=4, height=2)
 lebel9 = Label(root, font=('Ubuntu', 20), width=4, height=2)
 
 root.mainloop()
-
